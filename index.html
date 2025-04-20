@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<style>
+
+    body{
+        background:url(Bg.jpg) no-repeat;
+        background-blend-mode: color;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .calci{
+        box-shadow: inset 100px 100px 40px black,inset -100px -200px 40px black;
+    }
+
+    .keypad{
+        box-shadow: inset 100px 100px 40px rgb(245, 232, 232),inset -100px -200px 40px rgb(230, 210, 210);
+    }
+
+    input{
+        height: 40px;
+        font-size: 1.5rem;
+        color: black;
+    }
+
+    button{
+        border: solid black 1px;
+    }
+
+</style>
+
+
+<body class="container mt-5 my-aut0">
+   
+    <h1 class="text-center my-2 fw-bold" style="font-family: Georgia, 'Times New Roman', Times, serif;">Calculator</h1>
+    <div class="col-md-4 mx-auto">
+        <div class="card calci">
+            <div class="card-body">
+                <div class="row"></div>
+                <div class="row my-3">
+                    <div class="col-12 d-grid">
+                        <input type="text" id="output" placeholder="0" disabled class="text-end">
+                    </div>
+                </div>
+                <div class="card keypad">
+                    <div class="card-body">
+                        <div class="row my-3">
+                            <div class="col-6 d-grid">
+                                <button class="btn btn-danger" onclick="del()">Del</button>
+                            </div>
+                            <div class="col-6 d-grid">
+                                <button class="btn btn-warning" onclick="clr()">AC</button>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('7')">7</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('8')">8</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('9')">9</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-secondary" onclick="display('+')">+</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('4')">4</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('5')">5</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('6')">6</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-secondary" onclick="display('-')">-</button>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('1')">1</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('2')">2</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('3')">3</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-secondary" onclick="display('x')">x</button>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('.')">.</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-primary" onclick="display('0')">0</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-success" onclick="calculate()">=</button>
+                            </div>
+                            <div class="col-3 d-grid">
+                                <button class="btn btn-secondary" onclick="display('/')">%</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let outputvariable=document.getElementById("output");
+
+        const display=(num)=>{
+            outputvariable.value=outputvariable.value+num;
+        }
+
+        const calculate=()=>{
+            outputvariable.value=eval(outputvariable.value);
+        }
+
+        const clr=()=>{
+            outputvariable.value='';
+        }
+
+        const del=()=>{
+            outputvariable.value=outputvariable.value.slice(0,-1)
+        }
+    </script>
+
+
+</body>
+
+
+</html>
